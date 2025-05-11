@@ -354,17 +354,7 @@ body {
     padding: 0 0.5rem;
 }
 
-@media (min-width: 480px) {
-    .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media (min-width: 768px) {
-    .photo-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
 
 .photo-item {
     display: flex;
@@ -483,5 +473,52 @@ button, .continue-button, .back-button, .music-control {
 @media screen and (max-width: 767px) {
     input, select, textarea {
         font-size: 16px;
+    }
+}
+
+@media (min-width: 480px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 359px) {
+    .main-photo-container {
+        width: 85%;
+        max-width: 250px;
+    }
+
+    .entrance-message h1 {
+        font-size: 1.6rem;
+    }
+
+    .entrance-message p,
+    .continue-button span,
+    .mural-header p,
+    .message-card p {
+        font-size: 0.85rem;
+    }
+
+    .music-control {
+        top: 10px;
+        right: 10px;
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .back-button {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .message-card {
+        padding: 1rem;
     }
 }
