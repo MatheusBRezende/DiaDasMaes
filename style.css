@@ -23,7 +23,7 @@ body {
     touch-action: manipulation;
 }
 
-/* Entrance Section */
+/* ========= ENTRANCE SECTION ========= */
 #entrance {
     position: fixed;
     top: 0;
@@ -46,6 +46,7 @@ body {
     pointer-events: none;
 }
 
+/* Floating Hearts */
 .floating-hearts {
     position: absolute;
     width: 100%;
@@ -94,6 +95,7 @@ body {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
+/* Main Photo Container */
 .main-photo-container {
     position: relative;
     width: 70%;
@@ -164,43 +166,15 @@ body {
     }
 }
 
-/* Decorative flowers */
-.decorative-flower {
-    position: absolute;
-    color: var(--primary-color);
-    opacity: 0.7;
-    z-index: -1;
-}
-
-.flower-1 {
-    top: 10%;
-    left: 5%;
-    font-size: 1.5rem;
-    animation: float 8s infinite ease-in-out;
-}
-
-.flower-2 {
-    bottom: 20%;
-    right: 10%;
-    font-size: 2rem;
-    animation: float 10s infinite ease-in-out reverse;
-}
-
-.flower-3 {
-    top: 30%;
-    right: 5%;
-    font-size: 1.2rem;
-    animation: float 7s infinite ease-in-out;
-}
-
+/* Entrance Message */
 .entrance-message {
     text-align: center;
-    margin-top: 2rem;
+    margin: 1.5rem 0;
     transform: translateY(20px);
     opacity: 0;
     animation: messageAppear 1s forwards 1.5s;
-    position: relative;
     width: 100%;
+    position: relative;
 }
 
 @keyframes messageAppear {
@@ -223,88 +197,126 @@ body {
     color: var(--light-text);
 }
 
+/* Continue Button - CORREÇÃO PRINCIPAL */
 .continue-button {
     position: absolute;
-    bottom: clamp(1rem, 8vh, 3rem);
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
     opacity: 0;
-    transition: opacity 1s ease 3s;
-    animation: bounce 2s infinite 3s;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(5px);
-    z-index: 5;
-    max-width: 90%;
+    transition: opacity 1s ease;
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow);
+    min-width: 200px;
     text-align: center;
+    z-index: 10;
+    border: none;
+    outline: none;
 }
-
 
 .continue-button.visible {
     opacity: 1;
+    animation: bounce 2s infinite 3s;
 }
 
 .continue-button span {
-    margin-bottom: 0.5rem;
-    font-size: clamp(0.9rem, 4vw, 1rem);
+    margin-bottom: 0.3rem;
+    font-size: clamp(1rem, 4vw, 1.2rem);
     color: var(--primary-color);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .continue-button svg {
     width: 24px;
     height: 24px;
     stroke: var(--primary-color);
+    transition: transform 0.3s ease;
 }
 
+.continue-button:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.continue-button:hover svg {
+    transform: translateY(3px);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Music Control */
 .music-control {
     position: absolute;
     top: 20px;
     right: 20px;
     background-color: rgba(255, 255, 255, 0.7);
-    padding: 8px 12px;
-    border-radius: 20px;
-    backdrop-filter: blur(5px);
+    padding: 0.8rem 1.2rem;
+    border-radius: 30px;
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     color: var(--primary-color);
     cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
     z-index: 10;
-}
-
-.music-control:hover {
-    opacity: 1;
+    border: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow);
 }
 
 .music-control i {
     font-size: 1.2rem;
 }
 
-.music-control span {
-    font-size: 0.9rem;
+/* Decorative Flowers */
+.decorative-flower {
+    position: absolute;
+    color: var(--primary-color);
+    opacity: 0.7;
+    z-index: -1;
+    animation-timing-function: ease-in-out;
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
+.flower-1 {
+    top: 15%;
+    left: 8%;
+    font-size: 1.8rem;
+    animation: float 8s infinite;
 }
 
-/* Photo Mural Section */
+.flower-2 {
+    bottom: 25%;
+    right: 10%;
+    font-size: 2.2rem;
+    animation: float 10s infinite reverse;
+}
+
+.flower-3 {
+    top: 30%;
+    right: 8%;
+    font-size: 1.5rem;
+    animation: float 7s infinite;
+}
+
+/* ========= PHOTO MURAL SECTION ========= */
 #mural {
     padding: 3rem 1rem;
     transition: opacity 0.8s ease;
@@ -320,8 +332,8 @@ body {
     position: fixed;
     top: 20px;
     left: 20px;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background-color: var(--white);
     border-radius: 50%;
     display: flex;
@@ -331,36 +343,49 @@ body {
     z-index: 10;
     cursor: pointer;
     color: var(--primary-color);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
 }
 
 .mural-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     padding-top: 1rem;
 }
 
 .mural-header h2 {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(1.8rem, 8vw, 2.2rem);
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
 .mural-header p {
-    font-size: clamp(0.9rem, 4vw, 1rem);
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
     color: var(--light-text);
 }
 
 .photo-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    padding: 0 0.5rem;
+    gap: 1.8rem;
+    margin-bottom: 3rem;
+    padding: 0 0.8rem;
 }
 
+@media (min-width: 480px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
+@media (min-width: 768px) {
+    .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
 
 .photo-item {
     display: flex;
@@ -378,12 +403,12 @@ body {
 
 .photo-container {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
     background-color: var(--white);
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
+    padding: 0.6rem;
+    margin-bottom: 0.8rem;
     aspect-ratio: 3/4;
     position: relative;
 }
@@ -410,34 +435,35 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: transform 0.3s ease;
 }
 
 .photo-item:hover .photo-container img {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .photo-caption {
-    font-size: clamp(1.5rem, 3vw, 1rem);
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
     color: var(--light-text);
     text-align: center;
-    margin-top: 0.5rem;
+    margin-top: 0.6rem;
+    font-weight: 500;
 }
 
 .message-container {
-    margin: 3rem 0;
+    margin: 3.5rem 0;
     display: flex;
     justify-content: center;
-    padding: 0 1rem;
+    padding: 0 1.2rem;
 }
 
 .message-card {
     background-color: var(--white);
-    padding: clamp(1.5rem, 5vw, 2rem);
-    border-radius: 15px;
+    padding: clamp(1.8rem, 6vw, 2.5rem);
+    border-radius: 18px;
     box-shadow: var(--shadow);
-    max-width: 500px;
+    max-width: 550px;
     width: 100%;
     text-align: center;
     opacity: 0;
@@ -452,24 +478,25 @@ body {
 
 .message-card h3 {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: clamp(1.8rem, 7vw, 2.3rem);
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 .message-card p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
     line-height: 1.8;
-    font-size: clamp(0.9rem, 4vw, 1rem);
+    font-size: clamp(1rem, 4.5vw, 1.1rem);
 }
 
 .signature {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(1.1rem, 5vw, 1.3rem);
+    font-size: clamp(1.3rem, 6vw, 1.6rem);
     color: var(--primary-color);
-    margin-bottom: 0.3rem !important;
+    margin-bottom: 0.5rem !important;
 }
 
+/* ========= UTILITIES ========= */
 /* Improved touch targets for mobile */
 button, .continue-button, .back-button, .music-control {
     -webkit-tap-highlight-color: transparent;
@@ -479,66 +506,5 @@ button, .continue-button, .back-button, .music-control {
 @media screen and (max-width: 767px) {
     input, select, textarea {
         font-size: 16px;
-    }
-}
-
-@media (min-width: 480px) {
-    .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 768px) {
-    .photo-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 359px) {
-    .main-photo-container {
-        width: 85%;
-        max-width: 250px;
-    }
-
-    .entrance-message h1 {
-        font-size: 1.6rem;
-    }
-
-    .entrance-message p,
-    .continue-button span,
-    .mural-header p,
-    .message-card p {
-        font-size: 0.85rem;
-    }
-
-    .music-control {
-        top: 10px;
-        right: 10px;
-        padding: 6px 10px;
-        font-size: 0.8rem;
-    }
-
-    .back-button {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-    }
-
-    .message-card {
-        padding: 1rem;
-    }
-
-    .continue-button {
-        bottom: 1rem;
-        padding: 0.4rem 0.8rem;
-    }
-
-    .continue-button span {
-        font-size: 0.8rem;
-    }
-
-    .continue-button svg {
-        width: 20px;
-        height: 20px;
     }
 }
